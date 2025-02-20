@@ -20,7 +20,7 @@ dependencies {
     @Suppress("VulnerableLibrariesLocal", "RedundantSuppression")
     compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.json:json:20231013")
+    implementation("org.json:json:20250107")
 }
 
 val targetJavaVersion = 17
