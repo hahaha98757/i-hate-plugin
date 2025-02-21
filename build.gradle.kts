@@ -1,6 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.10"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    java
 }
 
 group = "kr.hahaha98757"
@@ -19,17 +18,20 @@ repositories {
 dependencies {
     @Suppress("VulnerableLibrariesLocal", "RedundantSuppression")
     compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.json:json:20250107")
 }
 
 val targetJavaVersion = 17
-kotlin {
-    jvmToolchain(targetJavaVersion)
+java {
+    JavaVersion.toVersion(targetJavaVersion)
 }
 
-tasks.build {
-    dependsOn("shadowJar")
+tasks.withType<JavaCompile>().configureEach {
+    options.encoding = "UTF-8"
+
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) {
+        options.release.set(targetJavaVersion)
+    }
 }
 
 tasks.processResources {
