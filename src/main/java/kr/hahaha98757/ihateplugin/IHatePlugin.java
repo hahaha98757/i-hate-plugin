@@ -12,7 +12,8 @@ public class IHatePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
+        PlayerTickEvent.register(this);
+        getServer().getPluginManager().registerEvents(new EventListener(), this);
         getLogger().info("I Hate Plugin v2.0.0 enable");
     }
 

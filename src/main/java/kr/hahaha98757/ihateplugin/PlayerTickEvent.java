@@ -16,6 +16,7 @@ public final class PlayerTickEvent extends Event {
         this.player = player;
     }
 
+    @SuppressWarnings("unused")
     public static HandlerList getHandlerList() {
         return HANDLERS;
     }
