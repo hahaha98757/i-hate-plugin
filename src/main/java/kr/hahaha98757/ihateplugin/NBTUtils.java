@@ -30,8 +30,12 @@ public final class NBTUtils {
         final File file = getPlayerDataFile(player);
         if (!file.exists()) return 0;
 
-        try (final FileReader reader = new FileReader(file)) {
-            final JSONObject json = new JSONObject(reader.read());
+        try (final BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            final StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) content.append(line);
+
+            final JSONObject json = new JSONObject(content.toString());
             return json.optInt("EvilStatus", 0);
         } catch (IOException e) {
             return 0;
