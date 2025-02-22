@@ -8,6 +8,7 @@ import java.io.*;
 
 public final class NBTUtils {
 
+    @NotNull
     private static File getPlayerDataFile(@NotNull final Player player) {
         final File dataFolder = new File("plugins/JustNormalPlugin/playerData");
         if (!dataFolder.exists()) //noinspection ResultOfMethodCallIgnored

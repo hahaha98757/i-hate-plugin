@@ -1,1 +1,1 @@
-I Hate Plugin v2.0.0을 Java로 만든 버전.
+I Hate Plugin v2.1.0을 Java로 만든 버전.
